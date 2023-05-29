@@ -2,7 +2,8 @@ select *
 from north
 limit 100;
 
---Projeta a cidade e a temperatura: Usando como filtro o estado, data e hora(intervalo) --
+-- Projeta a cidade e a temperatura: Usando como filtro o estado, data e hora(intervalo)
+-- tirando dados não válidos
 SELECT wsnm as cidade, data, hora, temp as temperatura
 FROM north_heast
 WHERE prov = 'CE'and
