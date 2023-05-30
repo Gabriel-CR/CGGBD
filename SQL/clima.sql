@@ -1,0 +1,175 @@
+create table central_west (
+	index int,
+	data date,
+	hora Time with Time Zone,
+	prcp float,
+	stp float,
+	smax float,
+	smin float,
+	gbrd int,
+	temp float,
+	dewp float,
+	tmax float,
+	tmin float,
+	dmax float,
+	dmin float,
+	hmax int,
+	hmin int,
+	hmdy float,
+	wdct float,
+	gust float,
+	wdsp float,
+	region varchar,
+	prov varchar,
+	wsnm varchar,
+	inme varchar,
+	lat double precision,
+	lon double precision,
+	elvt double precision
+);
+
+
+create table columns_description(
+	column_index int,
+	column_pt_br varchar,
+	columns_en varchar,
+	abbreviation varchar,
+	description varchar
+);
+
+
+create table north(
+	index int,
+	data date,
+	hora Time with Time Zone,
+	prcp float,
+	stp float,
+	smax float,
+	smin float,
+	gbrd int,
+	temp float,
+	dewp float,
+	tmax float,
+	tmin float,
+	dmax float,
+	dmin float,
+	hmax int,
+	hmin int,
+	hmdy float,
+	wdct float,
+	gust float,
+	wdsp float,
+	region varchar,
+	prov varchar,
+	wsnm varchar,
+	inme varchar,
+	lat double precision,
+	lon double precision,
+	elvt double precision
+);
+
+create table north_heast(
+	index int,
+	data date,
+	hora Time with Time Zone,
+	prcp float,
+	stp float,
+	smax float,
+	smin float,
+	gbrd int,
+	temp float,
+	dewp float,
+	tmax float,
+	tmin float,
+	dmax float,
+	dmin float,
+	hmax int,
+	hmin int,
+	hmdy float,
+	wdct float,
+	gust float,
+	wdsp float,
+	region varchar,
+	prov varchar,
+	wsnm varchar,
+	inme varchar,
+	lat double precision,
+	lon double precision,
+	elvt double precision
+);
+
+
+create table south(
+	index int,
+	data date,
+	hora Time with Time Zone,
+	prcp float,
+	stp float,
+	smax float,
+	smin float,
+	gbrd int,
+	temp float,
+	dewp float,
+	tmax float,
+	tmin float,
+	dmax float,
+	dmin float,
+	hmax int,
+	hmin int,
+	hmdy float,
+	wdct float,
+	gust float,
+	wdsp float,
+	region varchar,
+	prov varchar,
+	wsnm varchar,
+	inme varchar,
+	lat double precision,
+	lon double precision,
+	elvt double precision
+);
+
+
+create table south_heast(
+	index int,
+	data date,
+	hora Time with Time Zone,
+	prcp float,
+	stp float,
+	smax float,
+	smin float,
+	gbrd int,
+	temp float,
+	dewp float,
+	tmax float,
+	tmin float,
+	dmax float,
+	dmin float,
+	hmax int,
+	hmin int,
+	hmdy float,
+	wdct float,
+	gust float,
+	wdsp float,
+	region varchar,
+	prov varchar,
+	wsnm varchar,
+	inme varchar,
+	lat double precision,
+	lon double precision,
+	elvt double precision
+);
+
+
+create table stations(
+	station varchar,
+	region varchar,
+	state varchar,
+	station_code varchar,
+	first_date date,
+	height float,
+	longitude double precision,
+	latitude double precision
+);
+
+
