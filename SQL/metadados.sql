@@ -18,7 +18,16 @@ SELECT
 FROM
   information_schema.tables
 WHERE
-  table_schema = 'public' -- Substitua 'public' pelo nome do esquema desejado, se necessário
+  table_schema = 'public' 
   AND table_type = 'BASE TABLE';
 
--- quantidade de acessos sequenciais realizada em cada
+-- quantidade de acessos sequenciais realizada em cada tabela
+SELECT
+  relname AS table_name,
+  seq_scan AS quantidade_acessos_sequenciais
+FROM
+  pg_stat_user_tables
+WHERE
+  schemaname = 'public' 
+ORDER BY
+  quantidade_acessos_sequenciais DESC;
