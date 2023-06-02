@@ -1,8 +1,19 @@
--- Temperatura máxima em cada local
---  usar latitude e longitude
---  usar gráfico do brasil
+-- dado uma latitude e longitude, calcula as 5 estações mais próximas e a sua distância
+SELECT s.station, s.latitude, s.longitude,
+    (6371 * ACOS(COS(RADIANS(lat)) * COS(RADIANS(s.latitude)) * COS(RADIANS(long) - RADIANS(s.longitude)) + SIN(RADIANS(lat)) * SIN(RADIANS(s.latitude)))) AS distance
+FROM station s
+CROSS JOIN (SELECT -5.19812 AS lat, -39.2962 AS long) AS user_loc
+ORDER BY distance ASC
+LIMIT 5;
 
--- Informações de um determinado local
+-- Precipitação em um local e ano
+SELECT EXTRACT(MONTH FROM IO.data) AS mes, MAX(IO.prcp)
+FROM station AS ST
+JOIN info_outras AS IO ON ST.id = IO.id_station
+WHERE ST.state = 'CE'
+    AND EXTRACT(YEAR FROM IO.data) = 2019
+GROUP BY mes
+ORDER BY mes
 
 -- Temperatura mínima e máxima de um local
 SELECT	
@@ -32,4 +43,11 @@ FROM	station AS ST
 GROUP BY ST.state
 ORDER BY temperatura;
 
--- Quais os meses com maiores temperaturas em cada estado
+-- Radiação solar por local, mes, ano
+SELECT	EXTRACT(MONTH FROM IO.data) AS mes, MAX(IO.gbrd)
+FROM	station AS ST
+JOIN	info_outras AS IO ON ST.id = IO.id_station
+WHERE	ST.state = 'BA'
+    	AND EXTRACT(YEAR FROM IO.data) = 2019
+GROUP BY mes
+ORDER BY mes
