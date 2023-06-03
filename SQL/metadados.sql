@@ -9,7 +9,7 @@ FROM	information_schema.columns
 WHERE	table_schema = 'public' 
 GROUP BY table_name;
 
--- tamanho de cada tabela em em gigabaytes
+-- tamanho de cada tabela em gigabytes
 CREATE EXTENSION IF NOT EXISTS pgstattuple;
 
 SELECT
