@@ -15,12 +15,12 @@ GROUP BY S.state;
 
 
 -- Listar as cidades no CE com a maior temperatura e temperatura minima em um intervalo de datas
-SELECT nh.wsnm, max(nh.tmax), min(nh.tmin), nh.data
-FROM station as st join north_heast as nh on st.region = nh.region
-WHERE nh.prov = 'CE' and
+SELECT st.station, max(nh.tmax), min(nh.tmin), nh.data
+FROM station as st join info_temperatura as nh on st.id = nh.id_station
+WHERE st.state = 'CE' and
 	nh.data between '2021-01-01' and '2022-12-31' and
 	nh.tmin <> -9999
-GROUP BY nh.wsmn, nh.data;
+GROUP BY st.station, nh.data;
 
 -- Listar as cidades com valor elevação ordenado em ordem descrecente com sua temperatura max e min 
 
@@ -32,20 +32,20 @@ WHERE st.state = 'CE' and
 GROUP BY st.station, st.height, nh.data
 ORDER BY st.height DESC;
 
--- Listar as cidades no CE que tiveram a temperatura de 35 graus ou mais e quantas vezes aconteceu 
+-- Listar as cidades no CE que tiveram a temperatura maxima de 35 graus ou mais e quantas vezes aconteceu 
 
-SELECT nh.wsnm, COUNT(nh.wsnm)
-FROM station as st join north_heast as nh on st.region = nh.region
-WHERE nh.prov = CE and
-	nh.temp = 35
-GROUP BY nh.wsnm;
+SELECT st.station, COUNT(st.station)
+FROM station as st join info_temperatura as nh on st.id = nh.id_station
+WHERE st.state = 'CE' and
+	nh.tmax = 35
+GROUP BY st.station;
 
 
 -- Listar as cidades no CE que tiveram a maior velocidade de ventos e a data que aconteceu
 
-SELECT nh.wsnm, max(nh.wdsp), nh.data
-FROM station as st join north_heast as nh on st.region = nh.region
-WHERE nh.prov = 'CE'
-GROUP BY nh.wsnm, nh.data
+SELECT st.station, max(nh.wdsp), nh.data
+FROM station as st join info_vento as nh on st.id = nh.id_station
+WHERE st.state = 'CE'
+GROUP BY st.station, nh.data
 ORDER BY nh.wdsp DESC;
 
