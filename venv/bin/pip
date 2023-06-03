@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' /home/gabriel/Dropbox/FACULDADE/CONSTRUCAO_DE_SISTEMAS_DE_GERENCIA_DE_BANCO_DE_DADOS/TRABALHOS/TRABALHO_1/code/venv/bin/python3 "$0" "$@"
+'''exec' /home/gabriel/Dropbox/FACULDADE/CONSTRUCAO_DE_SISTEMAS_DE_GERENCIA_DE_BANCO_DE_DADOS/TRABALHOS/TRABALHO_1/code/venv/bin/python "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
