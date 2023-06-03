@@ -37,7 +37,8 @@ ORDER BY st.height DESC;
 SELECT nh.wsnm, COUNT(nh.wsnm)
 FROM station as st join north_heast as nh on st.region = nh.region
 WHERE nh.prov = CE and
-	nh.temp = 35;
+	nh.temp = 35
+GROUP BY nh.wsnm;
 
 
 -- Listar as cidades no CE que tiveram a maior velocidade de ventos e a data que aconteceu
