@@ -160,16 +160,17 @@ create table south_heast(
 	elvt double precision
 );
 
-
-create table stations(
+create table station(
+	id primary key,
 	station varchar,
 	region varchar,
 	state varchar,
 	station_code varchar,
-	first_date date,
-	height float,
+	first_date  date,
+	height double precision,
 	longitude double precision,
 	latitude double precision
 );
+
 
 
