@@ -1,0 +1,21 @@
+select pg_size_pretty(pg_total_relation_size('info_outras')) as info_outras
+, pg_size_pretty(pg_total_relation_size('info_pressao')) as info_pressao
+, pg_size_pretty(pg_total_relation_size('info_temperatura')) as info_temperatura
+, pg_size_pretty(pg_total_relation_size('info_umidade')) as info_umidade
+, pg_size_pretty(pg_total_relation_size('info_vento')) as info_vento
+, pg_size_pretty(pg_total_relation_size('station')) as station
+, pg_size_pretty(pg_total_relation_size('columns_description')) as columns_description;
+
+
+select pg_size_pretty(pg_database_size('clima')) as tamanho;
+
+
+VACUUM FULL info_outras;
+VACUUM FULL info_pressao;
+VACUUM FULL info_temperatura;
+VACUUM FULL info_umidade;
+VACUUM FULL info_vento;
+
+
+
+
