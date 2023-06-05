@@ -10,6 +10,20 @@ WHERE	table_schema = 'public'
 GROUP BY table_name;
 
 -- tamanho de cada tabela em gigabytes
+SELECT
+  table_name,
+  CASE
+    WHEN pg_total_relation_size(table_name::regclass) >= 1024.0 * 1024.0 * 1024.0 THEN
+      ROUND(pg_total_relation_size(table_name::regclass) / (1024.0 * 1024.0 * 1024.0), 2) || 'GB'
+    ELSE
+      ROUND(pg_total_relation_size(table_name::regclass) / (1024.0), 2) || 'KB'
+  END AS tamanho_tabela
+FROM
+  information_schema.tables
+WHERE
+  table_schema = 'public' 
+  AND table_type = 'BASE TABLE';
+
 CREATE EXTENSION IF NOT EXISTS pgstattuple;
 
 SELECT
